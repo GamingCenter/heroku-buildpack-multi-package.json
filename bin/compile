@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+indent() {
+    sed -u 's/^/      /'
+}
+
+BUILD_DIR=$1
+CACHE_DIR=$2
+ENV_DIR=$3
+
+PACKAGE_JSON=$(cat ${ENV_DIR}/PACKAGE_JSON)
+
+if [[ -z "${PACKAGE_JSON}" ]]; then
+    echo "PACKAGE_JSON not set. Aborting" | indent
+    exit 1
+fi
+
+cp ${BUILD_DIR}/${PACKAGE_JSON} ${BUILD_DIR}/package.json
+
+if ! [ $? ]; then
+    echo "FAILED to copy a package.json" | indent
+    exit 1
+fi
+
+echo "Copied ${PACKAGE_JSON} as package.json successfully" | indent

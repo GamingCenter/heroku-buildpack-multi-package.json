@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+echo "Multi-package.json"
+exit 0
