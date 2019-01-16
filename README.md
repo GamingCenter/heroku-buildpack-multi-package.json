@@ -1,0 +1,1 @@
+# heroku-buildpack-multi-package.json
