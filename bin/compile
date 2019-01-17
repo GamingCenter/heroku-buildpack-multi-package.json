@@ -11,8 +11,8 @@ ENV_DIR=$3
 PACKAGE_JSON=$(cat ${ENV_DIR}/PACKAGE_JSON)
 
 if [[ -z "${PACKAGE_JSON}" ]]; then
-    echo "PACKAGE_JSON not set. Aborting" | indent
-    exit 1
+    echo "PACKAGE_JSON not set. using default one in root directory" | indent
+    exit 0
 fi
 
 cp ${BUILD_DIR}/${PACKAGE_JSON} ${BUILD_DIR}/package.json
